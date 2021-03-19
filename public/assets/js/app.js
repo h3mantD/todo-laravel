@@ -1,9 +1,10 @@
 function delEvent() {  
-    $("p.todo").on("click",".del", function () {
+    $(".todo-list").on("click",".del", function () {
         if (confirm("are you sure you want to remove this todo item")) {
-            let id = $($(this).parent()).attr("id");
+            let id = $($(this).prev()).attr("id");
             console.log(id);
-            $($(this).parent()).remove();
+            $($(this).prev()).remove();
+            $(this).remove();
             $.ajax({
                     type: "DELETE",
                     url: "/home",
@@ -25,27 +26,6 @@ function delEvent() {
     });
 }
 
-function addTodo() {
-    $.ajax({
-        type: "POST",
-        url: "/home",
-        data: {newtodo:todo},
-        //dataType: "json",
-        success: function (response) {
-            console.log(response);
-            if(response.code == 200) {
-                alert('added todo');
-                $(".todo-list").append("<p class='todo' id='"+response.id+"'> " +response.data+ " <button class='del'>Delete</button> </p> ");
-                delEvent();
-            }
-        },
-        error: function (response) {
-            //console.log(response);
-            $(".error-list").append("<p> " +response.responseText+ "</p>");
-        }
-        
-    });
-}
 
 $(document).ready(function () {
     delEvent();
@@ -80,7 +60,7 @@ $(document).ready(function () {
                         console.log(response);
                         if(response.code == 200) {
                             alert('added todo');
-                            $(".todo-list").append("<p class='todo' id='"+response.id+"'> " +response.data+ " <button class='del'>Delete</button> </p> ");
+                            $(".todo-list").prepend("<p class='todo' id='"+response.id+"'> " +response.data+ "</p> <button class='del'>Delete</button> <hr> ");
                             delEvent();
                         }
                     },
@@ -90,9 +70,6 @@ $(document).ready(function () {
                     }
                     
                 });
-
-
-
 
                     }
                     else {

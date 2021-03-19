@@ -1,5 +1,59 @@
-form {
-    background-color:chocolate;
+body {
+    background-color: rgba(14, 14, 167, 0.568);
+}
+#add {
+    position: absolute;
+    right: 5%;
+    transition: 0.5ms;
+}
+
+#add:hover {
+    background-color: rgba(24, 207, 207, 0.514);
     color: white;
-    border: 3px red solid;
+    position: absolute;
+    right: 5%;
+    width: 150px;
+    height: 30px;
+    
+
+}
+input {
+    width: 750px;
+}
+
+.todo-container {
+    position: absolute;
+    left: 400px;
+    padding: 30px;
+    width: 50%;
+}
+
+
+.todo-list {
+    margin: auto;
+    
+}
+
+.todo-list p {
+    background-color: rgba(18, 161, 161, 0.671);
+    padding: 13px;
+    border: 2px solid navy;
+    border-radius: 12px;
+    
+}
+
+.todo-list p:hover {
+    color: white;
+    font-weight: bolder;
+}
+
+/* .todo-list button.del {
+    /* position: absolute;
+    right: 10%;
+    bottom:21% 
+} */
+
+.todo-list button.del:hover {
+    background-color: rgba(197, 25, 25, 0.582);
+    color: white;
 }

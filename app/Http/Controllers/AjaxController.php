@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AjaxController extends Controller
 {
      public function index() {
-        return view('home.index', ['todos' => TodoList::all()]);
+        return view('home.index', ['todos' => TodoList::orderBy('id', 'DESC')->get()]);
     }
 
     public function todoGet(Request $request) {
