@@ -11,8 +11,11 @@
             
         <div class="todo-list">
             @foreach ($todos as $todo)
-            <p class="todo" id="{{$todo->id}}"> {{$todo->todo_item}} </p><button class='del'>Delete</button> <hr>
+            <p class="todo" id="{{$todo->id}}"> {{$todo->todo_item}} </p>
+            <button class='del'>Delete</button> 
+            <button class='mark'>Mark as completed</button><hr>
             @endforeach
+
         </div>
        
         <div class="error-list">
