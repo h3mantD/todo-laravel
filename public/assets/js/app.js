@@ -7,25 +7,26 @@ function delEvent() {
             $($(this).nextUntil('p')).remove();
             $(this).remove();
             $.ajax({
-                    type: "DELETE",
-                    url: "/home",
-                    data: {delid:id},
-                    //dataType: "json",
-                    success: function (response) {
-                        if(response.code == 200) {
-                            alert("Todo item deleted");
-                        }
-                    },
-                    error: function (response) {
-                        //console.log(response);
-                        $(".error-list").append("<p> " +response.responseText+ "</p>");
+                type: "DELETE",
+                url: "/home",
+                data: {delid:id},
+                //dataType: "json",
+                success: function (response) {
+                    if(response.code == 200) {
+                        alert("Todo item deleted");
                     }
-                    
-                });
+                },
+                error: function (response) {
+                    //console.log(response);
+                    $(".error-list").append("<p> " +response.responseText+ "</p>");
+                }
+                
+            });
         }
 
     });
 }
+
 
 function removeMark() { 
     $(".todo-list").on("click",".rMark", function () {
@@ -86,7 +87,8 @@ $(document).ready(function () {
                         if(response.code == 200) {
                             alert('added todo');
                             $(".todo-list").prepend("<p class='todo' id='"+response.id+"'> " +response.data+ "</p> <button class='del'>Delete</button> <button class='mark'>Mark as completed</button> <hr> ");
-                            delEvent(); markEvent();
+                            //delEvent(); 
+                            markEvent();
                         }
                     },
                     error: function (response) {
@@ -106,14 +108,9 @@ $(document).ready(function () {
                     $(".error-list").append("<p> " +response.responseText+ "</p>");
                 }
             });
-            
-
            
         }
         $("#new-todo").val("");
     });
 
-    
-
 });
-

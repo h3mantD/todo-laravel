@@ -39,11 +39,17 @@ class AjaxController extends Controller
         return response()->json(['code'=>200, 'message'=>'To Do Created successfully','data' => $request['newtodo'], 'id' => $todo[0]->id], 200);
     }
 
-
     public function todoDelete(Request $request) {
         
         $todo = TodoList::find($request['delid']);
-        $todo->delete();
-        return response()->json(['code'=>200, 'message'=>'Todo item deleted successfully',], 200);
+        if($todo != null) {
+            $todo->delete();
+            return response()->json(['code'=>200, 'message'=>'Todo item deleted successfully',], 200);
+    
+        }
+        else {
+            
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,6 @@ Route::post('/home', [AjaxController::class, 'indexPost'])->name('home.indexPost
 Route::delete('/home', [AjaxController::class, 'todoDelete'])->name('home.todoDel');
 
 Route::get('/home/get', [AjaxController::class, 'todoGet'])->name('home.todoGet');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

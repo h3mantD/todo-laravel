@@ -9,6 +9,7 @@
             <input type="text" name="" id="new-todo">
             <button id="add">Add New Todo</button>
             
+            <div style="padding:10px; to"><h2 style="font-weight:bolder">ToDo List</h2><hr><hr></div>
         <div class="todo-list">
             @foreach ($todos as $todo)
             <p class="todo" id="{{$todo->id}}"> {{$todo->todo_item}} </p>
@@ -21,7 +22,6 @@
         <div class="error-list">
 
         </div>
-            
             
     </div>
 

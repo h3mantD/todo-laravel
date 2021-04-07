@@ -5,18 +5,19 @@ body {
     position: absolute;
     right: 5%;
     transition: 0.5ms;
+    padding: 5px;
 }
 
 #add:hover {
     background-color: rgba(24, 207, 207, 0.514);
     color: white;
     position: absolute;
-    right: 5%;
+    /* right: 5%;
     width: 150px;
-    height: 30px;
-    
-
+    height: 30px; */
 }
+
+
 input {
     width: 750px;
 }
@@ -53,7 +54,22 @@ input {
     bottom:21% 
 } */
 
+.mark .rMark {
+    padding: 10px;
+}
+
 .todo-list button.del:hover {
     background-color: rgba(197, 25, 25, 0.582);
     color: white;
+}
+
+.mark:hover {
+    color: white;
+    background-color: rgba(34, 34, 185, 0.562);
+}
+
+
+.rMark:hover {
+    color: white;
+    background-color: rgba(34, 34, 185, 0.562);
 }
